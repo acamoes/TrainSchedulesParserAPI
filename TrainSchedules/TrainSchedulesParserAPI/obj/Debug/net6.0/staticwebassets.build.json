@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "gJZSdJGz7/wM+8sTQxsCbB9JTSV5msgAuqBR5oswHIk=",
+  "Source": "TrainSchedulesParserAPI",
+  "BasePath": "_content/TrainSchedulesParserAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
