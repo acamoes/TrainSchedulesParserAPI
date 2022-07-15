@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MQrMfBAzDe4aGGdtpU7vC3nD9f6Uzhf8wVEqt4U0/9NADOMNpPw2k1vCeqIvYiGNpbTdaK2Hexkt4mCAeBo/vw==",
+  "dgSpecHash": "+1yyLFpLBOisAWSrw3t6IGKmlLlhktkC+GuoPJft6V6T8cLrNb4Z+ILtWXhLfsq6T92JCmLRBwCbugitEyi0EA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj",
   "expectedPackageFiles": [
@@ -11,10 +11,7 @@
     "C:\\Users\\Camoe\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Camoe\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Camoe\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "C:\\Users\\Camoe\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
-    "C:\\Users\\Camoe\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-arm\\6.0.3\\microsoft.netcore.app.runtime.linux-arm.6.0.3.nupkg.sha512",
-    "C:\\Users\\Camoe\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-arm\\6.0.3\\microsoft.aspnetcore.app.runtime.linux-arm.6.0.3.nupkg.sha512",
-    "C:\\Users\\Camoe\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm\\6.0.3\\microsoft.netcore.app.host.linux-arm.6.0.3.nupkg.sha512"
+    "C:\\Users\\Camoe\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
   ],
   "logs": []
 }

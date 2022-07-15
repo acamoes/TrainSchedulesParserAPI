@@ -8,7 +8,7 @@ namespace TrainSchedulesParserAPI
 {
     public class ScheduleResponse
     {
-        public string? nexttrain { get; set; }
+        public string? Nexttrain { get; set; }
         public string? NextTrainStatus { get; set; }
         public List<string>? Next3Trains { get; set; }
         public List<string>? Next3TrainsFull { get; set; }

@@ -31,7 +31,7 @@ namespace TrainSchedulesParserAPI
             if (horarios.Count > 0)
             {
                 ScheduleResponse scheduleResponse = new();
-                scheduleResponse.nexttrain = horarios.First().DataHoraPartidaChegada;
+                scheduleResponse.Nexttrain = horarios.First().DataHoraPartidaChegada;
                 scheduleResponse.NextTrainStatus = string.IsNullOrWhiteSpace(horarios.First().Observacoes) ? "OK" : horarios.First().Observacoes;
                 scheduleResponse.Next3Trains = horarios.Take(3).Select(x => x.DataHoraPartidaChegada).ToList();
                 scheduleResponse.Next3TrainsFull = horarios.Take(3).Select(x => x.DataHoraPartidaChegada + " " + (string.IsNullOrWhiteSpace(x.Observacoes) ? "OK" : x.Observacoes)).ToList();
