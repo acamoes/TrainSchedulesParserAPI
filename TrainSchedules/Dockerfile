@@ -6,10 +6,13 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0.0-focal-arm32v7 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["TrainSchedulesParserAPI/TrainSchedulesParserAPI.csproj", "TrainSchedulesParserAPI/"]
+#COPY ["TrainSchedulesParserAPI.csproj", "TrainSchedulesParserAPI/"]
+
 RUN dotnet restore "TrainSchedulesParserAPI/TrainSchedulesParserAPI.csproj"
+#RUN dotnet restore ".\TrainSchedulesParserAPI.csproj"
 COPY . .
 WORKDIR "/src/TrainSchedulesParserAPI"
 RUN dotnet build "TrainSchedulesParserAPI.csproj" -c Release -o /app/build

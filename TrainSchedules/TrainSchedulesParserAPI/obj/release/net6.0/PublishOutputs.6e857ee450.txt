@@ -1,0 +1,12 @@
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\TrainSchedulesParserAPI.exe
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\appsettings.Development.json
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\appsettings.json
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\TrainSchedulesParserAPI.dll
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\TrainSchedulesParserAPI.deps.json
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\TrainSchedulesParserAPI.runtimeconfig.json
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\TrainSchedulesParserAPI.pdb
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\Microsoft.OpenApi.dll
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\Newtonsoft.Json.dll
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Camoe\DEV\TrainSchedulesParserAPI\TrainSchedules\TrainSchedulesParserAPI\bin\Release\net6.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
