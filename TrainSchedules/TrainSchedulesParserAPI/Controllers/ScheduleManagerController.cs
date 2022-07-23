@@ -31,5 +31,15 @@ namespace TrainSchedulesParserAPI.Controllers
 
             return response != null ? Ok(response) : NotFound();
         }
+
+        // GET /GetStations
+        [HttpGet()]
+        [ActionName("GetStations")]
+        public async Task<ActionResult> GetStations()
+        {
+            string stations = string.Join(";", ScheduleManager.GetStations().Keys);
+
+            return stations != null ? Ok(stations) : NotFound();
+        }
     }
 }

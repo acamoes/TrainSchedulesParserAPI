@@ -69,8 +69,8 @@ namespace TrainSchedulesParserAPI
         {
             string stationID = GetStationId(request.Station);
 
-            string startDate = request.RequestTime.AddDays(-1).AddHours(-14).ToString("yyyy-MM-dd HH:mm");
-            string endDate = request.RequestTime.ToString("yyyy-MM-dd HH:mm");
+            string startDate = request.RequestTime.AddDays(-1).ToString("yyyy-MM-dd HH:mm");
+            string endDate = request.RequestTime.AddHours(2).ToString("yyyy-MM-dd HH:mm");
 
             string dateURL = startDate + "/" + endDate;
 
@@ -116,7 +116,7 @@ namespace TrainSchedulesParserAPI
             }
         }
 
-        private static Dictionary<string, int> GetStations()
+        public static Dictionary<string, int> GetStations()
         {
             try
             {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj": {}
+    "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj": {
+    "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj",
         "projectName": "TrainSchedulesParserAPI",
-        "projectPath": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj",
+        "projectPath": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj",
         "packagesPath": "C:\\Users\\Camoe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\obj\\",
+        "outputPath": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Camoe\\AppData\\Roaming\\NuGet\\NuGet.Config",
