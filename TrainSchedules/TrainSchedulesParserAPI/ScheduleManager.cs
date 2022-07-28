@@ -65,12 +65,12 @@ namespace TrainSchedulesParserAPI
             }
         }
 
-        private static string BuildURL(ScheduleRequest request)
+        public static string BuildURL(ScheduleRequest request)
         {
             string stationID = GetStationId(request.Station);
 
             string startDate = request.RequestTime.AddDays(-1).ToString("yyyy-MM-dd HH:mm");
-            string endDate = request.RequestTime.AddHours(2).ToString("yyyy-MM-dd HH:mm");
+            string endDate = request.RequestTime.AddHours(4).ToString("yyyy-MM-dd HH:mm");
 
             string dateURL = startDate + "/" + endDate;
 

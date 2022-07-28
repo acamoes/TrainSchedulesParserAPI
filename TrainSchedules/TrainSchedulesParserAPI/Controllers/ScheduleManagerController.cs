@@ -41,5 +41,19 @@ namespace TrainSchedulesParserAPI.Controllers
 
             return stations != null ? Ok(stations) : NotFound();
         }
+
+        // GET /GetStations
+        [HttpGet("{stationName}")]
+        [ActionName("GetURL")]
+        public async Task<ActionResult> GetURL(string stationName)
+        {
+            ScheduleRequest request = new();
+
+            request.Station = stationName;
+
+            string url = ScheduleManager.BuildURL(request);
+
+            return !string.IsNullOrWhiteSpace(url) ? Ok(url) : NotFound();
+        }
     }
 }
