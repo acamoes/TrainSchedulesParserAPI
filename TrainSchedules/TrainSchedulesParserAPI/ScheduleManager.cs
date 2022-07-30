@@ -69,8 +69,8 @@ namespace TrainSchedulesParserAPI
         {
             string stationID = GetStationId(request.Station);
 
-            string startDate = request.RequestTime.AddDays(-1).ToString("yyyy-MM-dd HH:mm");
-            string endDate = request.RequestTime.AddHours(4).ToString("yyyy-MM-dd HH:mm");
+            string startDate = request.RequestTime.AddMinutes(-10).ToString("yyyy-MM-dd HH:mm");
+            string endDate = request.RequestTime.AddHours(1).ToString("yyyy-MM-dd HH:mm");
 
             string dateURL = startDate + "/" + endDate;
 

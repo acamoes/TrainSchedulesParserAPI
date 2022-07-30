@@ -14,5 +14,6 @@ docker push acamoes/trainschedulesapi:fourth
 ```
 docker run -ti acamoes/trainschedulesapi:fourth
 
-docker run -d -p 4003:80 acamoes/trainschedulesapi:fourth
+docker run -d --restart unless-stopped -p 4003:80 acamoes/trainschedulesapi:fourth
+
 ```
