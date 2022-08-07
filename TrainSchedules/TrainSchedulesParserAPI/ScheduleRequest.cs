@@ -13,7 +13,8 @@ namespace TrainSchedulesParserAPI
 
         public ScheduleRequest()
         {
-            RequestTime = DateTime.Now;
+            // Docker container runs with UTC Now. There is a need to add +1
+            RequestTime = DateTime.UtcNow.AddHours(1);
         }
     }
 }
