@@ -75,9 +75,10 @@ namespace TrainSchedulesParserAPI
             string dateURL = startDate + "/" + endDate;
 
             StringBuilder returnURL = new();
-            returnURL.Append("https://www.infraestruturasdeportugal.pt/negocios-e-servicos/partidas-chegadas/");
+            returnURL.Append("https://servicos.infraestruturasdeportugal.pt/negocios-e-servicos/partidas-chegadas/");
             returnURL.Append(stationID);
             returnURL.Append("/" + dateURL);
+            returnURL.Append("/INTERNACIONAL,%20ALFA,%20IC,%20IR,%20REGIONAL,%20URB%7CSUBUR,%20ESPECIAL");
 
             return returnURL.ToString();
         }

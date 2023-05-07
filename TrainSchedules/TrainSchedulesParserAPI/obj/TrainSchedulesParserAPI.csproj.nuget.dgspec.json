@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj": {}
+    "C:\\Users\\Administrador\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj": {
+    "C:\\Users\\Administrador\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj",
         "projectName": "TrainSchedulesParserAPI",
-        "projectPath": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj",
-        "packagesPath": "C:\\Users\\Camoe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Camoe\\DEV\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\obj\\",
+        "projectPath": "C:\\Users\\Administrador\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\TrainSchedulesParserAPI.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\DEV\\TrainSchedulesParserAPI\\TrainSchedules\\TrainSchedulesParserAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Camoe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +64,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
