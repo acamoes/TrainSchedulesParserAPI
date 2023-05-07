@@ -4,15 +4,15 @@
 <h3>PC </h3>
 
 ```
-docker build -t acamoes/trainschedulesapi:fourth .
+docker build -t acamoes/trainschedulesapi:sixth .
 
-docker push acamoes/trainschedulesapi:fourth
+docker push acamoes/trainschedulesapi:sixth
 ```
 
 <h3>RPI </h3>
 
 ```
-docker run -ti acamoes/trainschedulesapi:fourth
+docker run -ti acamoes/trainschedulesapi:sixth
 
-docker run -d --restart unless-stopped -p 4003:80 acamoes/trainschedulesapi:fourth
+docker run -d --restart unless-stopped -p 4003:80 acamoes/trainschedulesapi:sixth
 ```
