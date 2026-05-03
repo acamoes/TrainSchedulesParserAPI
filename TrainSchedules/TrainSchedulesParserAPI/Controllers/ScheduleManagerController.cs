@@ -27,7 +27,7 @@ namespace TrainSchedulesParserAPI.Controllers
 
             request.Station = stationName;
 
-            ScheduleResponse response = ScheduleManager.Search(request);
+            ScheduleResponse? response = await ScheduleManager.Search(request);
 
             return response != null ? Ok(response) : NotFound();
         }

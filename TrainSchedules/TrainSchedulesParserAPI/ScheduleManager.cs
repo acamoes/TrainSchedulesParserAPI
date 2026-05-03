@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -11,56 +10,85 @@ namespace TrainSchedulesParserAPI
 {
     internal static class ScheduleManager
     {
-        public static ScheduleResponse Search(ScheduleRequest request)
+        private static readonly HttpClient client = new HttpClient();
+
+        public static async Task<ScheduleResponse?> Search(ScheduleRequest request)
         {
             List<NodesComboioTabelsPartidasChegada> horarios = new();
 
             string url = BuildURL(request);
 
-            Console.Write(url);
+            Console.WriteLine(url);
 
-            string response = string.Empty;
-
-            if (!string.IsNullOrEmpty(url))
+            if (!string.IsNullOrWhiteSpace(url))
             {
-                response = GetHTTPResponse(url);
+                string response = await GetHTTPResponse(url);
 
-                horarios = ProcessHorarios(response);
+                if (!string.IsNullOrWhiteSpace(response))
+                {
+                    horarios = ProcessHorarios(response);
+                }
             }
 
-            if (horarios.Count > 0)
-            {
-                ScheduleResponse scheduleResponse = new();
-                scheduleResponse.Nexttrain = horarios.First().DataHoraPartidaChegada;
-                scheduleResponse.NextTrainStatus = string.IsNullOrWhiteSpace(horarios.First().Observacoes) ? "OK" : horarios.First().Observacoes;
-                scheduleResponse.Next3Trains = horarios.Take(3).Select(x => x.DataHoraPartidaChegada).ToList();
-                scheduleResponse.Next3TrainsFull = horarios.Take(3).Select(x => x.DataHoraPartidaChegada + " " + (string.IsNullOrWhiteSpace(x.Observacoes) ? "OK" : x.Observacoes)).ToList();
-
-                return scheduleResponse;
-            }
-            else
-            {
+            if (horarios.Count == 0)
                 return null;
-            }
+
+            var first = horarios.First();
+
+            return new ScheduleResponse
+            {
+                Nexttrain = first.DataHoraPartidaChegada,
+                NextTrainStatus = string.IsNullOrWhiteSpace(first.Observacoes) ? "OK" : first.Observacoes,
+                Next3Trains = horarios.Take(3).Select(x => x.DataHoraPartidaChegada).ToList(),
+                Next3TrainsFull = horarios.Take(3)
+                    .Select(x => x.DataHoraPartidaChegada + " " + (string.IsNullOrWhiteSpace(x.Observacoes) ? "OK" : x.Observacoes))
+                    .ToList()
+            };
         }
 
-        public static string GetHTTPResponse(string uri)
+        public static async Task<string> GetHTTPResponse(string uri)
         {
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-                request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                using (Stream stream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(stream))
+                var handler = new HttpClientHandler
                 {
-                    return reader.ReadToEnd();
+                    UseCookies = true,
+                    CookieContainer = new System.Net.CookieContainer(),
+                    AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
+                };
+
+                using var client = new HttpClient(handler);
+
+                var request = new HttpRequestMessage(HttpMethod.Get, uri);
+
+                request.Headers.TryAddWithoutValidation("User-Agent",
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36");
+
+                request.Headers.TryAddWithoutValidation("Accept",
+                    "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+
+                request.Headers.TryAddWithoutValidation("Accept-Language",
+                    "pt-PT,pt;q=0.9,en;q=0.8");
+
+                request.Headers.TryAddWithoutValidation("Referer",
+                    "https://servicos.infraestruturasdeportugal.pt/");
+
+                request.Headers.TryAddWithoutValidation("Origin",
+                    "https://servicos.infraestruturasdeportugal.pt");
+
+                var response = await client.SendAsync(request);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                {
+                    Console.WriteLine("403 Forbidden");
+                    return string.Empty;
                 }
+
+                return await response.Content.ReadAsStringAsync();
             }
             catch (Exception e)
             {
-                Console.WriteLine(Convert.ToString(e.Message));
+                Console.WriteLine(e.Message);
                 return string.Empty;
             }
         }
@@ -72,15 +100,16 @@ namespace TrainSchedulesParserAPI
             string startDate = request.RequestTime.ToString("yyyy-MM-dd HH:mm");
             string endDate = request.RequestTime.AddHours(1).ToString("yyyy-MM-dd HH:mm");
 
-            string dateURL = startDate + "/" + endDate;
+            string dateURL = $"{startDate}/{endDate}";
 
-            StringBuilder returnURL = new();
-            returnURL.Append("https://servicos.infraestruturasdeportugal.pt/negocios-e-servicos/partidas-chegadas/");
-            returnURL.Append(stationID);
-            returnURL.Append("/" + dateURL);
-            returnURL.Append("/INTERNACIONAL,%20ALFA,%20IC,%20IR,%20REGIONAL,%20URB%7CSUBUR,%20ESPECIAL");
+            var url = new StringBuilder();
+            url.Append("https://servicos.infraestruturasdeportugal.pt/negocios-e-servicos/partidas-chegadas/");
+            url.Append(stationID);
+            url.Append("/");
+            url.Append(dateURL);
+            url.Append("/INTERNACIONAL,%20ALFA,%20IC,%20IR,%20REGIONAL,%20URB%7CSUBUR,%20ESPECIAL");
 
-            return returnURL.ToString();
+            return url.ToString();
         }
 
         private static string GetStationName(int stationKey)
@@ -90,30 +119,26 @@ namespace TrainSchedulesParserAPI
 
         private static string GetStationId(string stationName)
         {
-            return Convert.ToString(GetStations().FirstOrDefault(x => x.Key == stationName).Value);
+            var match = GetStations().FirstOrDefault(x => x.Key == stationName);
+            return match.Value == 0 ? string.Empty : match.Value.ToString();
         }
 
         private static List<NodesComboioTabelsPartidasChegada> ProcessHorarios(string response)
         {
-            List<NodesComboioTabelsPartidasChegada> horarios = new List<NodesComboioTabelsPartidasChegada>();
+            if (string.IsNullOrWhiteSpace(response))
+                return new List<NodesComboioTabelsPartidasChegada>();
 
-            if (!string.IsNullOrEmpty(response))
+            try
             {
-                Response partidasResponse = JsonConvert.DeserializeObject<Root>(response).Response.First();
-                horarios = partidasResponse.NodesComboioTabelsPartidasChegadas;
+                var root = JsonConvert.DeserializeObject<Root>(response);
+
+                return root?.Response?.FirstOrDefault()?.NodesComboioTabelsPartidasChegadas
+                       ?? new List<NodesComboioTabelsPartidasChegada>();
             }
-
-            return horarios;
-        }
-
-        private static void PrintValues(List<NodesComboioTabelsPartidasChegada> horarios)
-        {
-            foreach (var horario in horarios)
+            catch (Exception e)
             {
-                string estacaoOrigem = GetStationName(horario.EstacaoOrigem);
-                string estacaoDestino = GetStationName(horario.EstacaoDestino);
-
-                Console.WriteLine(estacaoOrigem + " > " + estacaoDestino + " " + horario.DataHoraPartidaChegada + " " + (horario.Observacoes.Contains("Suprimido") ? "Suprimido" : "OK"));
+                Console.WriteLine(e.Message);
+                return new List<NodesComboioTabelsPartidasChegada>();
             }
         }
 
